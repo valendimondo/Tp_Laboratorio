@@ -1,3 +1,4 @@
+import modelo.*;
 import javax.swing.*;
 import javax.swing.table.DefaultTableModel;
 import java.awt.*;
@@ -211,15 +212,11 @@ public class VentanaPrincipal extends JFrame {
 
     // ================= Acceso a la ventana de usuarios =================
 
-    private void abrirUsuarios() {
+        private void abrirUsuarios() {
         barra.setIndeterminate(true);
         Timer t = new Timer(300, e -> {              // pausa breve para que la barra se vea
             try {
-                // TODO: descomentar cuando exista VentanaUsuarios (la hace tu compañero)
-                // new VentanaUsuarios().setVisible(true);
-                JOptionPane.showMessageDialog(this,
-                        "La ventana de usuarios todavía no está conectada.",
-                        "Pendiente", JOptionPane.INFORMATION_MESSAGE);
+                new VentanaUsuarios().setVisible(true);
             } finally {
                 barra.setIndeterminate(false);       // siempre se detiene
             }

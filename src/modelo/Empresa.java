@@ -1,8 +1,8 @@
 package modelo;
 
 public class Empresa extends Cliente {
-    private String rubro;
-    private String director;
+    private final String rubro;
+    private final String director;
 
     public Empresa(String nombre, double ingresos, double gastos, boolean tieneBuenHistorial,
                    String rubro, String director) {
@@ -13,11 +13,9 @@ public class Empresa extends Cliente {
 
     @Override
     public double evaluarRiesgo() {
-        if (gastos == 0) {
-            return 1; // evita dividir por cero
-        }
+        if (gastos == 0) return 1;                       // evita división por cero
         double ratio = ingresos / gastos;
-        return ratio > 1.5 ? 1 : 0;
+        return ratio > 1.5 ? 1 : 0.5;
     }
 
     public String getRubro() { return rubro; }

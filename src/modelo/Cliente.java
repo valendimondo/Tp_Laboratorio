@@ -1,10 +1,10 @@
 package modelo;
 
 public abstract class Cliente {
-    protected String nombre;
-    protected double ingresos;
-    protected double gastos;
-    protected boolean tieneBuenHistorial;
+    protected final String nombre;
+    protected final double ingresos;
+    protected final double gastos;
+    protected final boolean tieneBuenHistorial;
 
     public Cliente(String nombre, double ingresos, double gastos, boolean tieneBuenHistorial) {
         this.nombre = nombre;
@@ -13,11 +13,11 @@ public abstract class Cliente {
         this.tieneBuenHistorial = tieneBuenHistorial;
     }
 
-    // Cada tipo de cliente evalúa el riesgo a su manera
+    /** 0 = no apto, 0.5 = apto con reservas, 1 = apto. */
     public abstract double evaluarRiesgo();
 
     public String getNombre() { return nombre; }
     public double getIngresos() { return ingresos; }
     public double getGastos() { return gastos; }
-    public boolean isTieneBuenHistorial() { return tieneBuenHistorial; }
+    public boolean tieneBuenHistorial() { return tieneBuenHistorial; }
 }
